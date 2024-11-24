@@ -1,1 +1,1 @@
-# GenAi
+# GenAi Activity
