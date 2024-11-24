@@ -1,37 +1,80 @@
-// script.js
-const personData = {
-    "name": "John Doe",
-    "age": 30,
-    "isEmployed": true,
-    "contact": {
-        "email": "john@example.com",
-        "phone": "555-1234"
-    },
-    "hobbies": ["reading", "swimming", "coding"],
-    "address": {
-        "street": "123 Main St",
-        "city": "Boston",
-        "state": "MA",
-        "zipCode": "02108"
-    }
-};
+/* style.css */
+body {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    min-height: 100vh;
+    padding: 2rem;
+}
 
-// Populate the HTML with data
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('personName').textContent = personData.name;
-    document.getElementById('personAge').textContent = personData.age;
-    document.getElementById('employmentStatus').textContent = personData.isEmployed ? 'Employed' : 'Unemployed';
-    document.getElementById('email').textContent = personData.contact.email;
-    document.getElementById('phone').textContent = personData.contact.phone;
-    document.getElementById('street').textContent = personData.address.street;
-    document.getElementById('city').textContent = personData.address.city;
-    document.getElementById('state').textContent = personData.address.state;
-    document.getElementById('zipCode').textContent = personData.address.zipCode;
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
 
-    const hobbiesList = document.getElementById('hobbiesList');
-    personData.hobbies.forEach(hobby => {
-        const li = document.createElement('li');
-        li.textContent = hobby;
-        hobbiesList.appendChild(li);
-    });
-});
+.section {
+    margin-bottom: 25px;
+    padding: 25px;
+    border-radius: 12px;
+    background-color: #2d2d2d;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: #fff;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    color: #64ffda;
+    margin-bottom: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid #64ffda;
+    padding-bottom: 8px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+strong {
+    color: #88c8ff;
+    font-weight: 600;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+li {
+    background-color: #3d3d3d;
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: inline-block;
+    transition: background-color 0.2s;
+}
+
+li:hover {
+    background-color: #4a4a4a;
+}
+
+span {
+    color: #ffffff;
+}
