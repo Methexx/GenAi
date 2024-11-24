@@ -1,41 +1,54 @@
-/* style.css */
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    line-height: 1.6;
-}
+// script.js
+const personData = {
+    "name": "John Doe",
+    "age": 30,
+    "isEmployed": true,
+    "contact": {
+        "email": "john@example.com",
+        "phone": "555-1234"
+    },
+    "hobbies": ["reading", "swimming", "coding"],
+    "address": {
+        "street": "123 Main St",
+        "city": "Boston",
+        "state": "MA",
+        "zipCode": "02108"
+    }
+};
 
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-}
+// Add fade-in animation when content loads
+document.addEventListener('DOMContentLoaded', () => {
+    // Add fade-in animation to sections
+    document.querySelectorAll('.section').forEach((section, index) => {
+        section.style.opacity = '0';
+        section.style.animation = `fadeIn 0.5s ease ${index * 0.2}s forwards`;
+    });
 
-.section {
-    margin-bottom: 20px;
-    padding: 15px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-}
+    // Populate the HTML with data
+    document.getElementById('personName').textContent = personData.name;
+    document.getElementById('personAge').textContent = personData.age;
+    document.getElementById('employmentStatus').textContent = personData.isEmployed ? 'Employed' : 'Unemployed';
+    document.getElementById('email').textContent = personData.contact.email;
+    document.getElementById('phone').textContent = personData.contact.phone;
+    document.getElementById('street').textContent = personData.address.street;
+    document.getElementById('city').textContent = personData.address.city;
+    document.getElementById('state').textContent = personData.address.state;
+    document.getElementById('zipCode').textContent = personData.address.zipCode;
 
-h1 {
-    color: #333;
-    text-align: center;
-}
+    const hobbiesList = document.getElementById('hobbiesList');
+    personData.hobbies.forEach(hobby => {
+        const li = document.createElement('li');
+        li.textContent = hobby.charAt(0).toUpperCase() + hobby.slice(1);
+        hobbiesList.appendChild(li);
+    });
+});
 
-h2 {
-    color: #444;
-    margin-bottom: 10px;
-}
-
-strong {
-    color: #666;
-}
-
-ul {
-    list-style-type: circle;
-    padding-left: 20px;
-}
-
-li {
-    margin-bottom: 5px;
-}
+// Add this to your CSS as well
+document.head.insertAdjacentHTML('beforeend', `
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+`);
