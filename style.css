@@ -16,15 +16,8 @@ const personData = {
     }
 };
 
-// Add fade-in animation when content loads
+// Populate the HTML with data
 document.addEventListener('DOMContentLoaded', () => {
-    // Add fade-in animation to sections
-    document.querySelectorAll('.section').forEach((section, index) => {
-        section.style.opacity = '0';
-        section.style.animation = `fadeIn 0.5s ease ${index * 0.2}s forwards`;
-    });
-
-    // Populate the HTML with data
     document.getElementById('personName').textContent = personData.name;
     document.getElementById('personAge').textContent = personData.age;
     document.getElementById('employmentStatus').textContent = personData.isEmployed ? 'Employed' : 'Unemployed';
@@ -38,17 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const hobbiesList = document.getElementById('hobbiesList');
     personData.hobbies.forEach(hobby => {
         const li = document.createElement('li');
-        li.textContent = hobby.charAt(0).toUpperCase() + hobby.slice(1);
+        li.textContent = hobby;
         hobbiesList.appendChild(li);
     });
 });
-
-// Add this to your CSS as well
-document.head.insertAdjacentHTML('beforeend', `
-    <style>
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
-`);
